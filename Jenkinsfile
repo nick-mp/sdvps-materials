@@ -13,10 +13,10 @@ pipeline {
    steps {
     sh 'docker build . -t ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER'
    }
-   stage('Push') {
+  }
+  stage('Push') {
    steps {
-    sh 'docker login 127.0.0.1:8123 -u admin -p admin123 && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'   }
-   }
+    sh 'docker login ubuntu-bionic:8082 -u admin -p admin && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'   }
   }
  }
 }
