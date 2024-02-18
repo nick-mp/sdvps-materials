@@ -16,7 +16,7 @@ pipeline {
   }
   stage('Push') {
    steps {
-    sh 'docker login 158.160.13.3:8082 -u admin -p 5d751b18-27d9-432b-962f-5ab6d6b4f278 && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'
+    sh 'sudo docker login 158.160.13.3:8082 -u admin -p 5d751b18-27d9-432b-962f-5ab6d6b4f278 && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'
    }
   }  
  }
