@@ -26,7 +26,7 @@ pipeline {
   }
   stage('Push') {
    steps {
-    sh 'curl --fail --upload-file file.zip 'http://158.160.13.3:8081/repository/raw-hosted/my-directory/file.zip'
+    sh 'curl --fail --upload-file file.zip 'ubuntu-bionic:8081/repository/raw-hosted/my-directory/file.zip'
    }
   } 
  }
