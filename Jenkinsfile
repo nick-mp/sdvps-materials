@@ -11,7 +11,7 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'sudo docker build . -t ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER'
+    sh 'sudo docker build . -t ubuntu-bionic:8082/hello-world'
    }
   }
   stage('Push') {
