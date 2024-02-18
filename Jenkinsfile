@@ -2,7 +2,7 @@ pipeline {
  agent any
  stages {
   stage('Git') {
-   steps {git 'https://github.com/nick-mp/sdvps-materials.git'}
+   steps {git 'https://github.com/netology-code/sdvps-materials.git'}
   }
   stage('Test') {
    steps {
@@ -13,10 +13,6 @@ pipeline {
    steps {
     sh 'docker build . -t ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER'
    }
-  }
-  stage('Push') {
-   steps {
-    sh 'sudo docker login ubuntu-bionic:8123 -u admin -p admin123 && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'   }
   }
  }
 }
