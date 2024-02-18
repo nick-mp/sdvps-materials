@@ -24,5 +24,10 @@ pipeline {
     sh 'go build -a -installsuffix nocgo -o myapp-v${BUILD_NUMBER}'
    }
   }
+  stage('Push to Nexus') {
+   steps {
+    sh "curl -v --upload-file myapp-v${BUILD_NUMBER} ${NEXUS_URL}/myapp-v${BUILD_NUMBER}"
+   }
+  }
  }
 }
