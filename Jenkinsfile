@@ -11,13 +11,13 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'docker build . -t ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER'
+    sh 'go build -a -installsuffix nocgo -o /app .'
    }
   }
-  stage('Push') {
-   steps {
-    sh 'docker login ubuntu-bionic:8082 && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'
-   }
-  }  
+$  stage('Push') {
+#   steps {
+#    sh 'docker login ubuntu-bionic:8082 && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'
+#   }
+#  }  
  }
 }
