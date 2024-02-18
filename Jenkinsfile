@@ -11,7 +11,7 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'sudo CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .'
+    sh 'CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .'
    }
   }
  }
