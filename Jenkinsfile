@@ -21,7 +21,7 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'go build -a -installsuffix nocgo -o /app .'
+    sh 'go build'
    }
   }
  }
