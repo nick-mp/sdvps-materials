@@ -21,13 +21,8 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'go build'
+    sh 'go build -a -installsuffix nocgo -o myapp-v${BUILD_NUMBER}'
    }
   }
-  stage('Push') {
-   steps {
-    sh 'curl --fail --upload-file file.zip "ubuntu-bionic:8081/repository/raw-hosted/my-directory/file.zip"'
-   }
-  } 
  }
 }
