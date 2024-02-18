@@ -6,7 +6,8 @@ pipeline {
  environment {
   NEXUS_VERSION = "nexus3"
   NEXUS_URL = "158.160.13.3:8081"
-  NEXUS_REPOSITORY = "raw-hosted"
+  NEXUS_PROTOCOL = "http"
+  NEXUS_REPOSITORY = "raw"
   NEXUS_CREDENTIAL_ID = "nexus-user-credentials"
  }
  stages {
