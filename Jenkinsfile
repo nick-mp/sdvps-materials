@@ -11,8 +11,13 @@ pipeline {
   }
   stage('Build') {
    steps {
-    sh 'CGO_ENABLED=0 GOOS=linux go build -a -installsuffix nocgo -o /app .'
+    sh 'docker build . -t ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER'
    }
   }
+  stage('Push') {
+   steps {
+    sh 'docker login 158.160.13.3:8082 -u admin -p 5d751b18-27d9-432b-962f-5ab6d6b4f278 && docker push ubuntu-bionic:8082/hello-world:v$BUILD_NUMBER && docker logout'
+   }
+  }  
  }
 }
